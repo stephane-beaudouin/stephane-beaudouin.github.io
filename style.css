@@ -477,3 +477,204 @@ section.bloc { padding: clamp(56px, 8vw, 96px) 0 0; }
 .formations { grid-template-columns: repeat(3, 1fr); }
 .formation .libelle.gris { color: var(--accent); }
 @media (max-width: 760px) { .formations { grid-template-columns: 1fr; } }
+
+/* ---------- v4 : employeurs, essentiel, carte ---------- */
+:root { --proov: #B8692A; }
+
+/* Employeurs sous la présentation */
+.employeurs { margin-top: 26px; padding-top: 14px; border-top: .5px solid var(--filet); }
+.employeurs ul { display: flex; flex-wrap: wrap; gap: 10px 36px; margin-top: 8px; }
+.employeurs li { display: flex; flex-direction: column; gap: 2px; }
+.employeurs strong {
+  font-family: var(--din); font-weight: 600; font-size: 22px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent-fonce);
+}
+.employeurs li span { color: var(--gris); font-size: 15px; }
+
+/* En 30 secondes */
+.essentiel {
+  margin: 0; display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--accent-clair); border-top: 4px solid var(--accent);
+}
+.essentiel > div { padding: 18px 20px 20px; border-left: .5px solid #C9D6E3; border-bottom: .5px solid #C9D6E3; transition: background .25s; }
+.essentiel > div:nth-child(4n+1) { border-left: 0; }
+.essentiel > div:nth-child(n+5) { border-bottom: 0; }
+.essentiel > div:hover { background: #DDE7F1; }
+.essentiel dt { font-family: var(--din); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-fonce); }
+.essentiel dd { margin: 6px 0 0; font-size: 17px; line-height: 1.3; color: var(--graphite); }
+
+/* Carte Terrain */
+.carte { margin: 0 0 36px; }
+.carte-vues { display: grid; grid-template-columns: 2fr 1fr; gap: 0; border-top: .5px solid var(--filet); border-bottom: .5px solid var(--filet); }
+.vue { padding: 14px 18px 16px 0; position: relative; }
+.vue + .vue { padding-left: 18px; padding-right: 0; border-left: .5px solid var(--filet); }
+.vue svg { display: block; width: 100%; height: auto; margin-top: 10px; overflow: visible; }
+.vue .terre { fill: none; stroke: #C5CED6; stroke-linecap: round; }
+.carte-monde .terre { stroke-width: 3.4; }
+.carte-europe .terre { stroke-width: 3.2; }
+.zone-europe { fill: var(--accent-voile); stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.site { cursor: pointer; outline: none; }
+.site circle, .site rect { stroke: var(--papier); stroke-width: 1.5; transition: transform .2s, opacity .2s; transform-box: fill-box; transform-origin: center; }
+.site.navya circle { fill: var(--accent); }
+.site.proov rect { fill: var(--proov); }
+.site:hover circle, .site:hover rect, .site:focus circle, .site:focus rect, .site.actif circle, .site.actif rect { transform: scale(1.6); }
+.carte.survol .site:not(.actif) { opacity: .35; }
+.legende-carte { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 12px; font-size: 15px; color: var(--gris); }
+.legende { display: inline-flex; align-items: center; gap: 8px; }
+.legende i { display: inline-block; width: 10px; height: 10px; }
+.legende.navya i { background: var(--accent); border-radius: 50%; }
+.legende.proov i { background: var(--proov); }
+.legende.aide { flex-basis: 100%; font-size: 14px; }
+.carte { position: relative; }
+.infobulle {
+  position: absolute; z-index: 5; pointer-events: none; opacity: 0; transform: translate(-50%, -100%);
+  background: var(--graphite); color: var(--papier); padding: 6px 10px; font-size: 14px; line-height: 1.25; white-space: nowrap;
+  transition: opacity .15s;
+}
+.infobulle.visible { opacity: 1; }
+.infobulle b { font-family: var(--din); font-weight: 600; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; display: block; color: #9CC3EA; }
+.region li.actif { background: var(--accent-voile); padding-left: 6px; padding-right: 6px; box-shadow: inset 3px 0 0 var(--accent); }
+.region li[data-site] { cursor: default; }
+
+/* Apparition des points */
+.anim .carte .site { opacity: 0; transition: opacity .4s; }
+.anim .carte.vu .site { opacity: 1; }
+.anim .carte.vu.survol .site:not(.actif) { opacity: .35; }
+
+@media (max-width: 980px) {
+  .essentiel { grid-template-columns: repeat(2, 1fr); }
+  .essentiel > div:nth-child(n) { border-left: .5px solid #C9D6E3; border-bottom: .5px solid #C9D6E3; }
+  .essentiel > div:nth-child(2n+1) { border-left: 0; }
+  .essentiel > div:nth-child(n+7) { border-bottom: 0; }
+}
+@media (max-width: 760px) {
+  .carte-vues { grid-template-columns: 1fr; }
+  .vue, .vue + .vue { padding: 12px 0 14px; border-left: 0; }
+  .vue + .vue { border-top: .5px solid var(--filet); }
+  .vue-europe svg { max-width: 360px; }
+  .employeurs strong { font-size: 19px; }
+}
+@media (max-width: 480px) {
+  .essentiel { grid-template-columns: 1fr; }
+  .essentiel > div:nth-child(n) { border-left: 0; border-bottom: .5px solid #C9D6E3; }
+  .essentiel > div:last-child { border-bottom: 0; }
+}
+@media print {
+  .infobulle, .legende.aide { display: none; }
+  .essentiel { background: none; }
+}
+
+/* Avion de la carte, piloté par le défilement */
+.route { fill: none; stroke: var(--filet); stroke-width: 1.4; stroke-dasharray: 5 5; }
+.route-faite { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+.avion { fill: var(--accent-fonce); stroke: var(--papier); stroke-width: 1.2; pointer-events: none; }
+.site.visite circle, .site.visite rect { animation: escale .7s ease-out; }
+@keyframes escale { 0% { transform: scale(1); } 40% { transform: scale(2.1); } 100% { transform: scale(1); } }
+@media print { .avion, .route, .route-faite { display: none; } }
+
+/* ---------- Méthode : vue Gantt façon outil de suivi de projet ---------- */
+.gantt {
+  --c: var(--accent); --c-sous: #9DB6CE; --c-fond: var(--accent-clair);
+  border: .5px solid var(--filet); background: var(--papier); box-shadow: 0 1px 0 var(--filet), 0 12px 32px -18px rgba(28, 33, 38, .25);
+}
+.gantt.proov { --c: var(--proov); --c-sous: #E3C2A4; --c-fond: #F8EEE5; }
+.g-outils { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px 14px; border-bottom: .5px solid var(--filet); background: var(--papier-2); }
+.g-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--c); color: var(--papier); display: grid; place-items: center; font-family: var(--din); font-weight: 600; font-size: 11px; letter-spacing: .04em; }
+.g-projet { font-family: var(--din); font-weight: 600; font-size: 15px; color: var(--graphite); }
+.g-vue { font-family: var(--din); font-weight: 600; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--c); background: var(--c-fond); padding: 4px 9px; border-radius: 3px; box-shadow: inset 0 -2px 0 var(--c); }
+.g-compte { color: var(--gris); font-size: 14px; }
+.g-tout { margin-left: auto; font: 600 11px var(--din); letter-spacing: .12em; text-transform: uppercase; background: none; border: 1px solid var(--filet); color: var(--graphite); padding: 6px 10px; cursor: pointer; }
+.g-tout:hover { border-color: var(--c); color: var(--c); }
+.g-defile { overflow-x: auto; }
+.g-corps { position: relative; min-width: 860px; }
+.g-ligne { display: grid; grid-template-columns: 300px 1fr; align-items: stretch; border-bottom: .5px solid var(--filet-clair); }
+.g-nom { padding: 8px 12px 8px 14px; border-right: .5px solid var(--filet); display: flex; align-items: center; gap: 8px; min-width: 0; }
+.g-piste {
+  display: grid; grid-template-columns: repeat(20, 1fr); align-items: center; padding: 0 6px;
+  background-image: linear-gradient(to right, var(--filet-clair) .5px, transparent .5px);
+  background-size: calc((100% - 12px) / 20) 100%; background-position: 6px 0;
+}
+.g-piste > * { grid-row: 1; }
+.g-tete { background: var(--papier-2); }
+.g-tete .g-nom { font-family: var(--din); font-weight: 600; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); }
+.g-groupe { grid-column: var(--d) / var(--f); align-self: stretch; display: flex; align-items: center; padding: 6px 8px; border-left: 1px solid var(--filet); font-family: var(--din); font-weight: 600; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gris); }
+.g-tache > summary { list-style: none; cursor: pointer; }
+.g-tache > summary::-webkit-details-marker { display: none; }
+.g-parent { min-height: 44px; transition: background .2s; }
+.g-parent:hover, .g-tache[open] > .g-parent { background: var(--c-fond); }
+.g-parent .g-nom { font-family: var(--din); font-weight: 600; font-size: 16px; color: var(--graphite); }
+.g-parent .g-nom::before { content: ""; width: 0; height: 0; border-left: 6px solid var(--gris); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; transition: transform .2s; flex: none; }
+.g-tache[open] > .g-parent .g-nom::before { transform: rotate(90deg); }
+.g-num { font-size: 12px; color: var(--c); min-width: 12px; }
+.g-nb { margin-left: auto; font-size: 11px; font-weight: 600; color: var(--gris); background: var(--papier-2); border: .5px solid var(--filet); border-radius: 9px; padding: 1px 7px; }
+.g-sous { min-height: 32px; background: #FBFCFC; }
+.g-sous .g-nom { padding-left: 46px; font-size: 14px; line-height: 1.25; color: var(--texte); }
+.g-barre {
+  grid-column: var(--d) / var(--f); height: 14px; border-radius: 7px; background: var(--c-sous);
+  position: relative; display: flex; align-items: center; overflow: hidden; white-space: nowrap;
+}
+.g-barre.g-mere { height: 24px; border-radius: 5px; background: var(--c); box-shadow: 0 2px 6px -2px rgba(28, 33, 38, .35); }
+.g-barre.g-var { background: repeating-linear-gradient(-45deg, var(--c-sous) 0 5px, transparent 5px 9px); border: 1px solid var(--c-sous); }
+.g-lib { padding: 0 8px; font-size: 11px; font-family: var(--din); font-weight: 600; letter-spacing: .04em; color: var(--graphite); }
+.g-mere .g-lib { font-size: 12px; color: var(--papier); }
+.g-jalon { grid-column: var(--d) / span 1; justify-self: start; width: 12px; height: 12px; background: var(--graphite); transform: translateX(-6px) rotate(45deg); }
+.g-liens { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+.g-liens path { fill: none; stroke: var(--graphite); stroke-width: 1.3; }
+.g-note { padding: 8px 14px; font-size: 14px; color: var(--gris); border-top: .5px solid var(--filet); }
+.gantt + .cycle-titre { margin-top: 48px; }
+
+/* Animation : les barres se remplissent l'une après l'autre, puis les liens apparaissent */
+.anim .gantt .g-barre { transform: scaleX(0); transform-origin: 0 50%; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.anim .gantt .g-jalon { opacity: 0; transition: opacity .3s; }
+.anim .gantt .g-liens { opacity: 0; transition: opacity .5s 1.6s; }
+.anim .gantt.vu .g-barre { transform: none; }
+.anim .gantt.vu .g-jalon, .anim .gantt.vu .g-liens { opacity: 1; }
+.anim .gantt.vu .g-liens { transition-delay: 1.6s; }
+
+@media (max-width: 760px) {
+  .g-corps { min-width: 720px; }
+  .g-ligne { grid-template-columns: 220px 1fr; }
+  .g-sous .g-nom { padding-left: 30px; font-size: 13px; }
+}
+@media print {
+  .g-tout { display: none; }
+  .gantt { box-shadow: none; }
+  .g-defile { overflow: visible; }
+}
+/* Colonne des phases figée pendant le défilement horizontal (mobile) */
+.g-nom { position: sticky; left: 0; z-index: 2; background: var(--papier); }
+.g-tete .g-nom { background: var(--papier-2); }
+.g-sous .g-nom { background: #FBFCFC; }
+.g-parent:hover .g-nom, .g-tache[open] > .g-parent .g-nom { background: var(--c-fond); }
+@media (max-width: 760px) {
+  .g-ligne { grid-template-columns: 150px 1fr; }
+  .g-corps { min-width: 760px; }
+  .g-parent .g-nom { font-size: 14px; padding-left: 10px; }
+  .g-sous .g-nom { padding-left: 14px; font-size: 12px; }
+  .g-nb { display: none; }
+}
+.g-liens { z-index: 1; }
+.g-nom { z-index: 3; }
+.g-nom { left: -1px; }
+
+/* Schéma de la station dans la fiche PV 01 */
+.fiche-figure { grid-column: 1 / -1; margin: 16px 0 4px; max-width: 560px; }
+.fiche-figure svg { display: block; width: 100%; height: auto; }
+.fiche-figure figcaption { margin-top: 6px; font-size: 14px; color: var(--gris); }
+
+/* Navette Navya au-dessus du Gantt */
+.route-navette { position: relative; height: 46px; margin: -6px 0 10px; border-bottom: 2px dashed var(--filet); }
+.route-navette .navette { position: absolute; left: 0; bottom: 2px; width: 80px; height: auto; will-change: transform; }
+.route-navette .roue { transform-box: fill-box; transform-origin: center; }
+@media print { .route-navette { display: none; } }
+
+/* Camion ProovStation : livraison puis station installée */
+.route-camion { position: relative; height: 58px; margin: -6px 0 10px; border-bottom: 2px dashed var(--filet); }
+.route-camion .camion-svg { position: absolute; left: 0; bottom: 2px; width: 118px; height: auto; overflow: visible; will-change: transform; }
+.route-camion .roue { transform-box: fill-box; transform-origin: center; }
+.route-camion .camion, .route-camion .poste { transition: transform .6s cubic-bezier(.3, .7, .3, 1), opacity .5s; }
+.route-camion.installee .camion { transform: translateX(90px); opacity: 0; }
+.route-camion.installee .poste { transform: translateY(42px); transition-delay: .25s; }
+@media print { .route-camion { display: none; } }
+@media (prefers-reduced-motion: reduce) { .route-camion .camion, .route-camion .poste { transition: none; } }
+.route-camion { overflow: hidden; }

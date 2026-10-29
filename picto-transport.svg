@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 146" width="600" height="292">
+  <title>Pictogramme de transport d'une station sur camion plateau</title>
+  <!-- Station posée sur le plateau -->
+  <g transform="translate(48 12) scale(0.6)">
+    <rect x="20" y="10" width="160" height="130" rx="6" fill="#2B5C8A"/>
+    <rect x="20" y="34" width="160" height="4" fill="#FFFFFF"/>
+    <rect x="46" y="52" width="108" height="88" rx="3" fill="#FFFFFF"/>
+    <path d="M58 140 V98 A42 42 0 0 1 142 98 V140 H130 V100 A30 30 0 0 0 70 100 V140 Z" fill="#2B5C8A"/>
+  </g>
+  <!-- Plateau et châssis -->
+  <rect x="10" y="98" width="216" height="8" rx="1.5" fill="#2B5C8A"/>
+  <rect x="40" y="108" width="196" height="10" fill="#2B5C8A"/>
+  <!-- Cabine -->
+  <path d="M232 118 V46 Q232 40 238 40 H268 Q279 40 283 54 L289 78 V112 Q289 118 283 118 Z" fill="#2B5C8A"/>
+  <g fill="#FFFFFF">
+    <path d="M250 48 H272 Q276 48 278 56 L281 72 H250 Z"/>
+    <rect x="239" y="48" width="6" height="24" rx="1"/>
+  </g>
+  <!-- Roues -->
+  <g fill="#FFFFFF">
+    <circle cx="70" cy="122" r="18"/>
+    <circle cx="116" cy="122" r="18"/>
+    <circle cx="258" cy="122" r="18"/>
+  </g>
+  <g fill="#2B5C8A">
+    <circle cx="70" cy="122" r="14.5"/>
+    <circle cx="116" cy="122" r="14.5"/>
+    <circle cx="258" cy="122" r="14.5"/>
+  </g>
+  <g fill="#FFFFFF">
+    <circle cx="70" cy="122" r="5"/>
+    <circle cx="116" cy="122" r="5"/>
+    <circle cx="258" cy="122" r="5"/>
+  </g>
+</svg>

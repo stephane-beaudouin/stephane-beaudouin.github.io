@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="400" height="300">
+  <title>Pictogramme de station de scan</title>
+  <!-- Module -->
+  <rect x="20" y="10" width="160" height="130" rx="6" fill="#2B5C8A"/>
+  <!-- Bandeau de toit -->
+  <rect x="20" y="34" width="160" height="4" fill="#FFFFFF"/>
+  <!-- Ouverture traversante -->
+  <rect x="46" y="52" width="108" height="88" rx="3" fill="#FFFFFF"/>
+  <!-- Portique de scan -->
+  <path d="M58 140 V98 A42 42 0 0 1 142 98 V140 H130 V100 A30 30 0 0 0 70 100 V140 Z" fill="#2B5C8A"/>
+</svg>

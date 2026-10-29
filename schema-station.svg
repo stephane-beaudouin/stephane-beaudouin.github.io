@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" width="720" height="520" font-family="Bahnschrift, Barlow, Arial Narrow, sans-serif">
+  <title>Schéma d'une station de scan automobile en conteneur</title>
+  <defs>
+    <pattern id="hachure" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#1C2126" stroke-width="0.8" opacity="0.35"/>
+    </pattern>
+    <pattern id="hachure-portique" width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="4.5" stroke="#1C2126" stroke-width="0.7" opacity="0.45"/>
+    </pattern>
+    <pattern id="grille" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="skewX(-40)">
+      <path d="M0 0H9M0 0V9" stroke="#1C2126" stroke-width="0.6" opacity="0.4" fill="none"/>
+    </pattern>
+    <marker id="pointe" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0L8 4 0 8z" fill="#1C2126"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="520" fill="#FFFFFF"/>
+
+  <!-- Sol -->
+  <g stroke="#1C2126" stroke-width="0.8" opacity="0.35">
+    <line x1="40" y1="470" x2="690" y2="470"/>
+    <line x1="80" y1="440" x2="200" y2="440" stroke-dasharray="10 8"/>
+    <line x1="560" y1="455" x2="680" y2="455" stroke-dasharray="10 8"/>
+  </g>
+  <!-- Ombre portée -->
+  <path d="M170 418 L300 462 L480 400 L500 408 L330 470 L150 420 Z" fill="#1C2126" opacity="0.08"/>
+
+  <g stroke="#1C2126" stroke-width="2" stroke-linejoin="round" fill="none">
+    <!-- Toit -->
+    <path d="M160 128 L330 92 L490 120 L310 168 Z" fill="#F6F7F8"/>
+    <!-- Face latérale -->
+    <path d="M160 128 L310 168 L310 450 L168 410 Z" fill="#FFFFFF"/>
+    <path d="M160 128 L310 168 L310 450 L168 410 Z" fill="url(#hachure)" stroke="none"/>
+    <!-- Bandeau haut, face latérale -->
+    <path d="M160 128 L310 168 L310 206 L161 166 Z" fill="#FFFFFF"/>
+
+    <!-- Face avant -->
+    <path d="M310 168 L490 120 L486 386 L310 450 Z" fill="#FFFFFF"/>
+    <!-- Bandeau haut, face avant -->
+    <path d="M310 168 L490 120 L490 160 L310 206 Z" fill="#FFFFFF"/>
+    <!-- Ouverture : tunnel traversant, vu en profondeur -->
+    <clipPath id="ouverture"><path d="M330 222 L470 186 L468 376 L330 426 Z"/></clipPath>
+    <g clip-path="url(#ouverture)">
+      <path d="M330 222 L470 186 L468 376 L330 426 Z" fill="#FFFFFF" stroke="none"/>
+      <path d="M330.0 426.0 L468.0 376.0 L340.0 342.0 L202.0 392.0 Z" fill="#EEF1F3" stroke-width="1.2"/>
+      <path d="M364.5 413.5 L236.5 379.5" stroke-width="0.7" opacity="0.4"/>
+      <path d="M399.0 401.0 L271.0 367.0" stroke-width="0.7" opacity="0.4"/>
+      <path d="M433.5 388.5 L305.5 354.5" stroke-width="0.7" opacity="0.4"/>
+      <path d="M470.0 186.0 L468.0 376.0 L340.0 342.0 L342.0 152.0 Z" fill="#D9DEE3" stroke-width="1.2"/>
+      <path d="M470.0 186.0 L468.0 376.0 L340.0 342.0 L342.0 152.0 Z" fill="url(#hachure)" stroke="none"/>
+      <!-- Portique de scan : anneau profond, le véhicule passe dessous -->
+      <path d="M444.4 380.6 L444.4 268.4 L354.8 244.6 L354.8 356.8 Z" fill="#E3E7EA" stroke-width="1.2"/>
+      <path d="M398.5 231.9 L404.5 230.2 L410.3 229.4 L416.0 229.6 L421.4 230.7 L426.4 232.8 L430.9 235.7 L434.9 239.5 L438.2 244.1 L440.9 249.3 L442.8 255.2 L444.0 261.6 L444.4 268.4 L354.8 244.6 L354.4 237.8 L353.2 231.4 L351.3 225.5 L348.6 220.3 L345.3 215.7 L341.3 211.9 L336.8 209.0 L331.8 206.9 L326.4 205.8 L320.7 205.6 L314.9 206.4 L308.9 208.1 Z" fill="#EEF1F3" stroke-width="1"/>
+      <path d="M263.0 390.0 L263.0 277.8 L263.4 270.7 L264.5 263.5 L266.5 256.2 L269.1 249.1 L272.5 242.1 L276.4 235.4 L280.9 229.2 L285.9 223.6 L291.3 218.5 L297.0 214.2 L302.9 210.8 L308.9 208.1 L314.9 206.4 L320.7 205.6 L326.4 205.8 L331.8 206.9 L336.8 209.0 L341.3 211.9 L345.3 215.7 L348.6 220.3 L351.3 225.5 L353.2 231.4 L354.4 237.8 L354.8 244.6 L354.8 356.8" stroke-width="1.2" opacity="0.7"/>
+      <path d="M444.4 380.6 L354.8 356.8" stroke-width="1.6"/>
+      <!-- Paroi du portique autour de l'arche, hachurée -->
+      <path d="M330 222 L470 186 L468 376 L330 426 Z M346.4 416.1 L346.4 303.9 L346.8 295.1 L348.1 286.2 L350.3 277.2 L353.3 268.4 L357.1 259.8 L361.6 251.7 L366.8 244.2 L372.4 237.3 L378.5 231.3 L385.0 226.2 L391.7 222.1 L398.5 219.1 L405.3 217.2 L411.9 216.4 L418.4 216.9 L424.5 218.5 L430.2 221.2 L435.3 225.0 L439.8 229.9 L443.6 235.7 L446.6 242.3 L448.8 249.7 L450.1 257.7 L450.6 266.1 L450.6 378.3 Z" fill="#FFFFFF" fill-rule="evenodd" stroke="none"/>
+      <path d="M330 222 L470 186 L468 376 L330 426 Z M346.4 416.1 L346.4 303.9 L346.8 295.1 L348.1 286.2 L350.3 277.2 L353.3 268.4 L357.1 259.8 L361.6 251.7 L366.8 244.2 L372.4 237.3 L378.5 231.3 L385.0 226.2 L391.7 222.1 L398.5 219.1 L405.3 217.2 L411.9 216.4 L418.4 216.9 L424.5 218.5 L430.2 221.2 L435.3 225.0 L439.8 229.9 L443.6 235.7 L446.6 242.3 L448.8 249.7 L450.1 257.7 L450.6 266.1 L450.6 378.3 Z" fill="url(#hachure-portique)" fill-rule="evenodd" stroke="none"/>
+      <path d="M346.4 416.1 L346.4 303.9 L346.8 295.1 L348.1 286.2 L350.3 277.2 L353.3 268.4 L357.1 259.8 L361.6 251.7 L366.8 244.2 L372.4 237.3 L378.5 231.3 L385.0 226.2 L391.7 222.1 L398.5 219.1 L405.3 217.2 L411.9 216.4 L418.4 216.9 L424.5 218.5 L430.2 221.2 L435.3 225.0 L439.8 229.9 L443.6 235.7 L446.6 242.3 L448.8 249.7 L450.1 257.7 L450.6 266.1 L450.6 378.3 Z M444.4 380.6 L444.4 268.4 L444.0 261.6 L442.8 255.2 L440.9 249.3 L438.2 244.1 L434.9 239.5 L430.9 235.7 L426.4 232.8 L421.4 230.7 L416.0 229.6 L410.3 229.4 L404.5 230.2 L398.5 231.9 L392.5 234.6 L386.6 238.0 L380.9 242.3 L375.5 247.4 L370.5 253.0 L366.0 259.2 L362.1 265.9 L358.7 272.9 L356.1 280.0 L354.1 287.3 L353.0 294.5 L352.6 301.6 L352.6 413.8 Z" fill="#FFFFFF" fill-rule="evenodd" stroke-width="2"/>
+    </g>
+    <path d="M330 222 L470 186 L468 376 L330 426 Z"/>
+    <!-- Caméras -->
+    <g fill="#1C2126" stroke="none">
+      <circle cx="312" cy="214" r="4.5"/>
+      <circle cx="486" cy="168" r="4.5"/>
+      <circle cx="163" cy="174" r="4.5"/>
+    </g>
+
+    <!-- Rampe d'accès -->
+    <path d="M330 426 L468 376 L590 420 L452 476 Z" fill="#FFFFFF"/>
+    <path d="M330 426 L468 376 L590 420 L452 476 Z" fill="url(#grille)" stroke="none"/>
+    <path d="M330 426 L452 476" stroke-width="2"/>
+    <path d="M528 449 L442 418" stroke-width="3" marker-end="url(#pointe)"/>
+  </g>
+
+  <!-- Repères -->
+  <g stroke="#1C2126" stroke-width="1" fill="none">
+    <polyline points="398,219 398,60 560,60"/>
+    <polyline points="236,350 236,470"/>
+  </g>
+  <g fill="#1C2126" font-size="14">
+    <circle cx="398" cy="219" r="3"/>
+    <text x="566" y="56" font-weight="600" letter-spacing="1.5">PORTIQUE DE SCAN</text>
+    <text x="566" y="73" fill="#5A636B">le véhicule le traverse</text>
+    <text x="242" y="488" font-weight="600" letter-spacing="1.5">MODULE</text>
+    <text x="242" y="505" fill="#5A636B">conteneur modifié pour protéger le scanner</text>
+  </g>
+</svg>

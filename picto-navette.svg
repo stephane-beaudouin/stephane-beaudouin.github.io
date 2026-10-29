@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 127" width="480" height="254">
+  <title>Pictogramme de navette autonome</title>
+  <!-- Unité de toit -->
+  <rect x="103" y="8" width="34" height="10" rx="2" fill="#2B5C8A"/>
+  <!-- Caisse : flancs droits, angles du toit arrondis -->
+  <path d="M17 101 L17 50 Q17 18 48 16 L190 16 Q221 18 221 50 L221 101 Z" fill="#2B5C8A"/>
+  <!-- Vitrages -->
+  <g fill="#FFFFFF">
+    <path d="M27 63 L27 50 Q27 28 50 27 L82 27 L82 63 Z"/>
+    <rect x="91" y="24" width="56" height="44" rx="3"/>
+    <path d="M211 63 L211 50 Q211 28 188 27 L156 27 L156 63 Z"/>
+  </g>
+  <!-- Porte coulissante -->
+  <line x1="119" y1="68" x2="119" y2="100" stroke="#FFFFFF" stroke-width="2.5"/>
+  <!-- Passages de roue -->
+  <g fill="#FFFFFF">
+    <circle cx="56" cy="104" r="21"/>
+    <circle cx="182" cy="104" r="21"/>
+  </g>
+  <!-- Roues -->
+  <g fill="#2B5C8A">
+    <circle cx="56" cy="104" r="17"/>
+    <circle cx="182" cy="104" r="17"/>
+  </g>
+  <g fill="#FFFFFF">
+    <circle cx="56" cy="104" r="6"/>
+    <circle cx="182" cy="104" r="6"/>
+  </g>
+</svg>
